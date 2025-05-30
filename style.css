@@ -431,3 +431,19 @@ nav a:hover {
         margin-left: 6px;
     }
 }
+@media (max-width: 600px) {
+    .left {
+        font-size: 2rem; /* Başlık yazısını büyüt */
+    }
+    .left h1 {
+        font-size: 2rem; /* Başlık yazısını büyüt */
+    }
+    .products-grid {
+        gap: 8px 0; /* Kutucuklar arası boşluğu azalt */
+    }
+    .product-card {
+        padding: 10px 0 6px 0; /* Yüksekliği azalt */
+        font-size: 1.08rem;     /* Yazı boyutunu biraz büyüt */
+        min-height: 48px;       /* Minimum yüksekliği azalt */
+    }
+}
