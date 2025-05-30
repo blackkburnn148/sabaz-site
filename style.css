@@ -10,7 +10,7 @@ body {
     color: #fff;
 }
 .border-wrap {
-    border: 2px solid #a259ff;
+    border: 2px solid #77668d00;
     min-height: 100vh;
     box-sizing: border-box;
 }
@@ -325,5 +325,109 @@ nav a:hover {
     to {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 8px 0 8px;
+    }
+    .right {
+        margin-top: 32px;
+    }
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    header,
+    .main-content {
+        flex-direction: column;
+        padding: 8px 2vw 0 2vw;
+    }
+    header {
+        align-items: flex-start;
+        padding: 8px 2vw 0 2vw;
+        flex-wrap: wrap;
+    }
+    .logo {
+        margin-bottom: 8px;
+    }
+    nav {
+        gap: 8px;
+        flex-wrap: wrap;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 8px;
+    }
+    nav a {
+        margin-right: 0;
+        padding: 4px 8px;
+        font-size: 1rem;
+    }
+    .contact {
+        font-size: 0.95rem;
+        gap: 4px;
+        margin-bottom: 8px;
+        width: 100%;
+        justify-content: center;
+    }
+    .contact-icon {
+        width: 32px;
+        height: 20px;
+        margin-right: -4px;
+    }
+    .main-content {
+        padding: 8px 2vw 0 2vw;
+    }
+    .left {
+        margin-top: 16px;
+        padding-left: 0;
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    .left h1 {
+        font-size: 1.3rem;
+        letter-spacing: -1px;
+    }
+    .right {
+        margin-top: 12px;
+    }
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 10px 0;
+        width: 100%;
+    }
+    .product-card {
+        min-width: 0;
+        width: 100%;
+        padding: 14px 0 8px 0;
+        font-size: 0.98rem;
+    }
+    .product-card i {
+        font-size: 1.5rem;
+    }
+    .more-products {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .bottom-logos {
+        gap: 12px;
+        overflow-x: auto;
+        padding: 10px 0;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    .bottom-logos img {
+        height: 36px;
+        min-width: 60px;
+    }
+    .bottom-logos .more {
+        font-size: 0.95em;
+        margin-left: 6px;
     }
 }
