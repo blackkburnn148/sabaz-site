@@ -1,21 +1,35 @@
-/* Import Fonts */
+/* ====== Import Fonts ====== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap');
 
 /* ====== Base Styles ====== */
 body {
     margin: 0;
     font-family: 'Montserrat', Arial, sans-serif;
-    background: radial-gradient(circle at 30% 40%, #1e5edb 60%, #0a2e6e 100%);
+    background: url('images/background.png') no-repeat center center fixed;
+    background-size: cover;
     min-height: 100vh;
     color: #fff;
+    opacity: 0;
+    transform: translateX(-80px);
+    animation: slideInRight 1.1s cubic-bezier(.6,1.5,.5,1) forwards;
 }
+
+@keyframes slideInRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
 .border-wrap {
     border: 2px solid #77668d00;
     min-height: 100vh;
     box-sizing: border-box;
 }
 
-/* ====== Header ====== */
+/* ====== Header Styles ====== */
 header {
     display: flex;
     align-items: center;
@@ -23,14 +37,16 @@ header {
     padding: 12px 32px 0 32px;
     border-bottom: 3px solid #fff;
 }
+
 .logo {
     display: flex;
     align-items: center;
 }
+
 .logo-icon {
-    width: 48px;
-    height: 48px;
-    background: #1e5edb;
+    width: 64px;
+    height: 64px;
+    background: #1e5ddb00;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -38,10 +54,20 @@ header {
     margin-right: 12px;
     border: 2px solid #ffffff00;
 }
-.logo-icon i {
-    font-size: 2rem;
-    color: #fff;
+
+.logo-icon img,
+.logo-icon svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 6px;
 }
+
+.logo-icon i {
+    font-size: 2.8rem;
+}
+
 .logo-text {
     font-family: 'Poppins', Arial, sans-serif;
     font-weight: 500;
@@ -49,42 +75,37 @@ header {
     line-height: 1.1;
     font-style: italic;
 }
+
 .logo-sub {
     font-size: 0.9rem;
     color: #00e6e6;
     font-weight: 400;
+    font-style: italic;
 }
+
 nav {
     display: flex;
     gap: 24px;
     align-items: center;
 }
+
 nav a {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
     font-size: 1.05rem;
     margin-right: 8px;
+    transition: transform 0.18s cubic-bezier(.4,1.5,.5,1);
 }
-nav a.underline {
-    text-decoration: underline;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.05rem;
-    margin-right: 8px;
-    transition: transform 0.18s cubic-bezier(.4,1.5,.5,1); /* ← bunu ekle */
-}
+
 nav a.underline {
     text-decoration: underline;
 }
 
-/* Bunu ekle */
 nav a:hover {
     transform: scale(1.18);
 }
+
 .contact {
     display: flex;
     align-items: center;
@@ -92,12 +113,23 @@ nav a:hover {
     font-weight: bold;
     font-size: 1.1rem;
 }
+#floating-form {
+  position: fixed;
+  bottom: 30px;      /* Distance from bottom */
+  right: 30px;       /* Distance from right */
+  z-index: 9999;     /* On top of other elements */
+  /* Optional: add a shadow or background */
+  /* background: white; */
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.2); */
+}
+
 .contact-icon {
     width: 80px;
     height: 50px;
     vertical-align: middle;
     margin-right: -20px;
 }
+
 .contact .phone {
     color: #00e6e6;
     font-size: 1.2rem;
@@ -113,13 +145,14 @@ nav a:hover {
     align-items: flex-start;
     padding: 64px 64px 0 64px;
 }
+
 .left {
     flex: 1;
     margin-top: 190px;
     padding-left: 100px;
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 3.2rem;
-    font-weight: se;
+    font-weight: 500;
     margin-bottom: 18px;
     line-height: 1.08;
     letter-spacing: -1px;
@@ -132,6 +165,8 @@ nav a:hover {
     letter-spacing: -2px;
     font-style: italic;
 }
+
+
 .left .subtitle {
     color: #00e6e6;
     font-size: 1.18rem;
@@ -139,6 +174,7 @@ nav a:hover {
     margin-top: 2px;
     margin-bottom: 0;
 }
+
 .right {
     position: relative;
     flex: 1.2;
@@ -146,6 +182,7 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
 }
+
 .background-logo {
     position: absolute;
     top: 50%;
@@ -157,17 +194,20 @@ nav a:hover {
     z-index: 0;
     pointer-events: none;
 }
+
 .products-grid,
 .more-products {
     position: relative;
     z-index: 1;
 }
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 36px 48px;
     margin-bottom: 24px;
 }
+
 .product-card {
     background: #fff;
     color: #0a2e6e;
@@ -182,21 +222,26 @@ nav a:hover {
     transition: transform 0.22s cubic-bezier(.4,1.5,.5,1), box-shadow 0.22s;
     cursor: pointer;
 }
+
 .product-card:hover {
     transform: scale(1.13);
     box-shadow: 0 6px 32px rgba(30,94,219,0.18);
     z-index: 2;
 }
+
 .product-card i {
     font-size: 2.4rem;
     margin-bottom: 12px;
     color: #1e5edb;
 }
+
 .product-card span {
     font-size: 1.13rem;
     font-weight: 600;
     text-align: center;
 }
+
+
 .more-products {
     color: #ffffff;
     font-weight: bold;
@@ -206,127 +251,118 @@ nav a:hover {
     cursor: pointer;
     text-shadow: 0 1px 2px #0002;
 }
+.background-logos-area {
+    position: relative;
+    background-color: #fff;
+    z-index: 1;
+    /* Yüksekliği içeriğe göre ayarlanır, istersen min-height ekleyebilirsin */
+    overflow: hidden;
+}
 
-/* ====== Bottom Logos ====== */
-.bottom-logos {
+.background-logos-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image: 
+        url('images/sabaz-logo.png'),
+        url('images/sabaz-logo.png'),
+        url('images/sabaz-logo.png');
+    background-size: 260px 260px, 320px 320px, 260px 260px;
+    background-position: 10% 60%, 50% 70%, 90% 60%;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    opacity: 0.07;
+}
+
+.background-logos-area {
+    min-height: 400px; /* ihtiyaca göre artır/azalt */
+}
+
+.teklif {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 0 8px;
+    color: #0a2e6e;
+    font-weight: 700;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 2rem;
+    font-style: italic;
+    background: #fff;         /* Beyaz arka plan */
+    box-shadow: 0 2px 12px #0001; /* Hafif gölge (isteğe bağlı) */
+    border: none;
+    padding: 18px 36px;       /* İç boşluk */
+}
+
+/* ====== Bottom Logos ====== */
+.bottom-logos {
+    overflow: hidden;
+    position: relative;
     background: #fff;
-    padding: 18px 0;
-    border-top: 2px solid #e0e0e0;
     margin-top: 24px;
 }
+
 .bottom-logos img {
     height: 60px;
     object-fit: contain;
 }
+
 .bottom-logos .more {
     font-weight: bold;
     color: #2d2d2d;
     font-size: 1.1em;
     margin-left: 10px;
 }
-.bottom-logos .logo-aksigorta { height: 70px; }
-.bottom-logos .logo-allianz { height: 20px; }
-.bottom-logos .logo-anadolu { height: 40px; }
-.bottom-logos .logo-hdi { height: 55px; }
-.bottom-logos .logo-sompo { height: 60px; }
-.bottom-logos .logo-axa { height: 62px; }
-.bottom-logos .logo-quick { height: 58px; }
-.bottom-logos .logo-hepiyi { height: 60px; }
-.bottom-logos .logo-ankara { height: 64px; }
 
-/* ====== Responsive Design ====== */
-@media (max-width: 900px) {
-    .main-content {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 24px 8px 0 8px;
-    }
-    .right {
-        margin-top: 32px;
-    }
-}
-@media (max-width: 600px) {
-    header,
-    .main-content {
-        flex-direction: column;
-        padding: 12px 4px 0 4px;
-    }
-    header {
-        align-items: flex-start;
-        padding: 8px 4px 0 4px;
-    }
-    .logo-icon {
-        width: 36px;
-        height: 36px;
-        margin-right: 8px;
-    }
-    .logo-text {
-        font-size: 1rem;
-    }
-    .logo-sub {
-        font-size: 0.8rem;
-    }
-    nav {
-        gap: 10px;
-        flex-wrap: wrap;
-        font-size: 0.95rem;
-    }
-    .contact {
-        font-size: 0.95rem;
-        gap: 4px;
-    }
-    .contact-icon {
-        width: 36px;
-        height: 24px;
-        margin-right: -8px;
-    }
-    .main-content {
-        padding: 12px 4px 0 4px;
-    }
-    .left {
-        margin-top: 24px;
-        padding-left: 0;
-        font-size: 1.5rem;
-        text-align: center;
-    }
-    .left h1 {
-        font-size: 1.5rem;
-        letter-spacing: -1px;
-    }
-    .right {
-        margin-top: 16px;
-    }
-    .products-grid {
-        grid-template-columns: 1fr;
-        gap: 12px 0;
-    }
-    .product-card {
-        min-width: 0;
-        width: 100%;
-        padding: 18px 0 10px 0;
-    }
+.bottom-logos .logo-aksigorta { height: 90px; }
+.bottom-logos .logo-allianz { height: 90px; }
+.bottom-logos .logo-anadolu { height: 90px; }
+.bottom-logos .logo-hdi { height: 90px; }
+.bottom-logos .logo-sompo { height: 90px; }
+.bottom-logos .logo-axa { height: 90px; }
+.bottom-logos .logo-quick { height: 90px; }
+.bottom-logos .logo-hepiyi { height: 90px; }
+.bottom-logos .logo-ankara { height: 90px; }
+
+/* ====== Logos Track ====== */
+.logos-track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    animation: logos-scroll 28s linear infinite;
+    will-change: transform;
 }
 
-/* ====== Animations ====== */
-.main-content .left,
-.main-content .right {
-    opacity: 0;
-    transform: translateX(-80px);
-    animation: slideInLeft 1s ease-out forwards;
-}
-.main-content .right {
-    animation-delay: 0.3s;
-}
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
+@keyframes logos-scroll {
+    0% {
         transform: translateX(0);
     }
+    100% {
+        transform: translateX(-50%);
+    }
 }
+
+.logos-track img,
+.logos-track .more {
+    transition: transform 0.22s cubic-bezier(.4,1.5,.5,1);
+    cursor: pointer;
+}
+
+.logos-track img:hover,
+.logos-track .more:hover {
+    transform: scale(1.18);
+    z-index: 2;
+}
+
+/* Responsive için */
+@media (max-width: 600px) {
+    .logos-track {
+        gap: 12px;
+    }
+}
+
+/* ====== Responsive Design ====== */
 @media (max-width: 900px) {
     .main-content {
         flex-direction: column;
@@ -340,80 +376,43 @@ nav a:hover {
         grid-template-columns: repeat(2, 1fr);
         gap: 18px 12px;
     }
+    #floating-jotform-widget {
+        width: 320px;
+        height: 500px;
+    }
 }
 
 @media (max-width: 600px) {
-    header,
-    .main-content {
-        flex-direction: column;
-        padding: 8px 2vw 0 2vw;
-    }
-    header {
-        align-items: flex-start;
-        padding: 8px 2vw 0 2vw;
-        flex-wrap: wrap;
-    }
-    .logo {
-        margin-bottom: 8px;
-    }
-    nav {
-        gap: 8px;
-        flex-wrap: wrap;
-        font-size: 0.95rem;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 8px;
-    }
-    nav a {
-        margin-right: 0;
-        padding: 4px 8px;
-        font-size: 1rem;
-    }
-    .contact {
-        font-size: 0.95rem;
-        gap: 4px;
-        margin-bottom: 8px;
-        width: 100%;
-        justify-content: center;
-    }
-    .contact-icon {
-        width: 32px;
-        height: 20px;
-        margin-right: -4px;
-    }
-    .main-content {
-        padding: 8px 2vw 0 2vw;
-    }
     .left {
+        font-size: 2rem;
         margin-top: 16px;
         padding-left: 0;
-        font-size: 1.2rem;
         text-align: center;
     }
     .left h1 {
-        font-size: 1.3rem;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+        line-height: 1.18;
         letter-spacing: -1px;
-    }
-    .right {
-        margin-top: 12px;
     }
     .products-grid {
         grid-template-columns: 1fr;
-        gap: 10px 0;
+        gap: 8px 0;
+        max-width: 320px;
+        margin: 0 auto;
         width: 100%;
     }
     .product-card {
-        min-width: 0;
-        width: 100%;
+        max-width: 290px;
+        margin: 0 auto;
         padding: 14px 0 8px 0;
-        font-size: 0.98rem;
+        font-size: 1.22rem;
+        min-height: 48px;
+        width: 100%;
     }
     .product-card i {
-        font-size: 1.5rem;
-    }
-    .more-products {
-        font-size: 1rem;
-        margin-top: 10px;
+        font-size: 1.6rem;
     }
     .bottom-logos {
         gap: 12px;
@@ -429,21 +428,17 @@ nav a:hover {
     .bottom-logos .more {
         font-size: 0.95em;
         margin-left: 6px;
+
     }
 }
-@media (max-width: 600px) {
-    .left {
-        font-size: 2rem; /* Başlık yazısını büyüt */
-    }
-    .left h1 {
-        font-size: 2rem; /* Başlık yazısını büyüt */
-    }
-    .products-grid {
-        gap: 8px 0; /* Kutucuklar arası boşluğu azalt */
-    }
-    .product-card {
-        padding: 10px 0 6px 0; /* Yüksekliği azalt */
-        font-size: 1.08rem;     /* Yazı boyutunu biraz büyüt */
-        min-height: 48px;       /* Minimum yüksekliği azalt */
-    }
+
+.background-logos-area {
+  position: relative; /* or absolute/fixed */
+  z-index: 10;        /* higher than other elements */
 }
+iframe {
+  position: relative;
+  z-index: 20;
+}
+
+#JotFormIFrame-0197206a2af3731299426457c40b2e8d9316 { visibility: hidden; }
