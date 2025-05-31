@@ -522,3 +522,63 @@ iframe {
     transform: scale(1.18);
     z-index: 2;
 }
+/* ...existing code... */
+
+/* Mobil header düzeni */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 8px;
+    gap: 16px;
+  }
+  .logo {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  nav a {
+    font-size: 1rem;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .contact {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .logo-icon img {
+    width: 48px;
+    height: auto;
+  }
+}
+
+/* Header ana düzeni için flex ekleyin */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
