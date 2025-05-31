@@ -148,12 +148,12 @@ nav a:hover {
 
 .left {
     flex: 1;
-    margin-top: 190px;
+    margin-top: 160px;
     padding-left: 100px;
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 3.2rem;
     font-weight: 500;
-    margin-bottom: 18px;
+    margin-bottom: 50px;
     line-height: 1.08;
     letter-spacing: -1px;
 }
@@ -284,15 +284,16 @@ nav a:hover {
     align-items: center;
     justify-content: center;
     gap: 0 8px;
-    color: #0a2e6e;
+    color:#0a3cff;
     font-weight: 700;
     font-family: 'Poppins', Arial, sans-serif;
     font-size: 2rem;
     font-style: italic;
-    background: #fff;         /* Beyaz arka plan */
-    box-shadow: 0 2px 12px #0001; /* Hafif gölge (isteğe bağlı) */
+    background: transparent;   
+    box-shadow: none;
     border: none;
     padding: 18px 36px;       /* İç boşluk */
+    background-color: rgb(255, 255, 255);
 }
 
 /* ====== Bottom Logos ====== */
@@ -327,32 +328,25 @@ nav a:hover {
 
 /* ====== Logos Track ====== */
 .logos-track {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    animation: logos-scroll 28s linear infinite;
-    will-change: transform;
+  display: flex;
+  width: max-content;
+  animation: scroll-logos 60s linear infinite;
+  align-items: center;
 }
 
-@keyframes logos-scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
+@keyframes scroll-logos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.logos-track img,
-.logos-track .more {
-    transition: transform 0.22s cubic-bezier(.4,1.5,.5,1);
-    cursor: pointer;
-}
-
-.logos-track img:hover,
-.logos-track .more:hover {
-    transform: scale(1.18);
-    z-index: 2;
+.logos-track img, .logos-track .more {
+  margin: 0 24px;
+  height: 48px;
+  flex-shrink: 0;
 }
 
 /* Responsive için */
@@ -442,3 +436,89 @@ iframe {
 }
 
 #JotFormIFrame-0197206a2af3731299426457c40b2e8d9316 { visibility: hidden; }
+
+/* Hakkımızda Bölümü */
+.about-section {
+  background: url('images/background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  padding: 60px 0 40px 0;
+}
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: #fff;
+  color: #0a3cff;
+  display: inline-block;
+  padding: 10px 40px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+.about-desc {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+.about-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.feature {
+  background: rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 24px 18px 18px 18px;
+  min-width: 220px;
+  max-width: 260px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+  margin-bottom: 16px;
+}
+.feature i {
+  font-size: 2.1rem;
+  margin-top: 2px;
+  color: #fff;
+  background: #0a3cff;
+  border-radius: 50%;
+  padding: 10px;
+}
+.feature-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: #fff;
+  color: #0a3cff;
+  border-radius: 8px;
+  padding: 2px 10px;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+.feature-desc {
+  display: block;
+  font-size: 0.98rem;
+  color: #fff;
+  margin-top: 2px;
+}
+@media (max-width: 900px) {
+  .about-features {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+}
+
+.logos-track img {
+    transition: transform 0.22s cubic-bezier(.4,1.5,.5,1), box-shadow 0.22s;
+}
+
+.logos-track img:hover {
+    transform: scale(1.18);
+    z-index: 2;
+}
